@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+   /* background-color: ${({ theme }) => theme.palette.background.default}; 
+   tex-color: ${({ theme }) => theme.palette.text.primary}; */
+
 }
 
 code {
