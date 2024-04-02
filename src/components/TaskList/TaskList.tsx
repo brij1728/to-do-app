@@ -23,19 +23,28 @@ export const TaskList: React.FC = () => {
     <Box mt={4}>
       <List>
         {tasks.map((task) => (
-          <ListItem key={task.id} sx={{ '&:hover': { '& .MuiListItemSecondaryAction-root': { visibility: 'visible' }, backgroundColor: theme.palette.background.paper, color: theme.palette.text.secondary },
-           color: theme.palette.text.primary,
-           '& .MuiListItemText-secondary': {
-               color: theme.palette.text.primary,
-               textDecoration: task.completed ? 'line-through' : 'none', 
-           },
+          <ListItem key={task.id} sx={{ 
+            '&:hover': { 
+              '& .MuiListItemSecondaryAction-root': { visibility: 'visible' }, 
+              backgroundColor: theme.palette.background.paper, 
+              color: theme.palette.text.secondary,
+              '& .MuiCheckbox-root': { color: theme.palette.text.primary } 
+            },
+            color: theme.palette.text.primary,
+            '& .MuiListItemText-primary, & .MuiListItemText-secondary': {
+                color: theme.palette.text.primary,
+                textDecoration: task.completed ? 'line-through' : 'none', 
+                
+            },
+            '& .MuiCheckbox-root': { color: theme.palette.primary.main },
+
           }}>
             <Grid container alignItems="center">
               <Grid item xs={1}>
                 <Checkbox
                   checked={task.completed}
                   onChange={() => handleTaskDone(task)} 
-                  style={{ color: task.completed ? 'green' : 'red' }}
+                  color="primary"
                 />
               </Grid>
               <Grid item xs={9}>
