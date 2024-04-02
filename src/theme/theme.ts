@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles';
 
 // Define custom background and text colors
 const lightBackground = '#556cd6';
-const darkBackground = '#292B32';
+const darkBackground = '#5571d6';
 const lightText = '#000000';
 const darkText = '#FFFFFF';
 

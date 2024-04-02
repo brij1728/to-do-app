@@ -1,4 +1,4 @@
-import { Box, Checkbox, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText } from '@mui/material';
+import { Box, Checkbox, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText } from '@mui/material';
 import { deleteTask, updateTask } from '../../store/taskSlice';
 import { useAppDispatch, useAppSelector } from '../../store';
 
@@ -27,24 +27,33 @@ export const TaskList: React.FC = () => {
            color: theme.palette.text.primary,
            '& .MuiListItemText-secondary': {
                color: theme.palette.text.primary,
+               textDecoration: task.completed ? 'line-through' : 'none', 
            },
           }}>
-            <Checkbox
-              checked={task.completed}
-              onChange={() => handleTaskDone(task)} 
-              style={{ color: task.completed ? 'green' : 'red' }}
-            />
-            <ListItemText 
-              primary={task.title} 
-              secondary={task.text} 
-            />
-            <Box className="delete-btn" style={{ visibility: 'hidden', paddingLeft: '4px'}}>
-              <ListItemSecondaryAction >
-                <IconButton edge="end" aria-label="delete" onClick={() => handleDeleteTask(task.id)}>
-                  <DeleteIcon sx={{ '&:hover': { color: theme.palette.text.secondary } }} />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </Box>
+            <Grid container alignItems="center">
+              <Grid item xs={1}>
+                <Checkbox
+                  checked={task.completed}
+                  onChange={() => handleTaskDone(task)} 
+                  style={{ color: task.completed ? 'green' : 'red' }}
+                />
+              </Grid>
+              <Grid item xs={9}>
+                <ListItemText 
+                  primary={task.title} 
+                  secondary={task.text} 
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <Box className="delete-btn" style={{ visibility: 'hidden', paddingLeft: '4px'}}>
+                  <ListItemSecondaryAction >
+                    <IconButton edge="end" aria-label="delete" onClick={() => handleDeleteTask(task.id)}>
+                      <DeleteIcon sx={{ '&:hover': { color: theme.palette.text.secondary } }} />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+                </Box>
+              </Grid>
+            </Grid>
           </ListItem>
         ))}
       </List>

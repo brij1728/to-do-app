@@ -1,9 +1,9 @@
 import { Container, Grid } from '@mui/material';
-import { ThemePicker, theme } from './theme';
 
 import { Home } from './pages';
 import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './theme';
 
 const App: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <Container>
         <Grid container justifyContent="flex-end" mt={2} mb={4}> 
           <Grid item>
-            <ThemePicker />
+            {/* <ThemePicker /> */}
           </Grid>
         </Grid>
       </Container>
