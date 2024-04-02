@@ -5,19 +5,19 @@ import { addTask } from '../../store/taskSlice';
 import { useAppDispatch } from '../../store';
 
 export const TaskInput: React.FC = () => {
-  const [showFields, setShowFields] = useState<boolean>(false); // State to toggle the input fields
+  const [showFields, setShowFields] = useState<boolean>(false); 
   const [taskName, setTaskName] = useState<string>('');
   const [taskText, setTaskText] = useState<string>('');
-  const [error, setError] = useState<string>(''); // State to handle validation error
+  const [error, setError] = useState<string>(''); 
   const dispatch = useAppDispatch();
 
   const handleToggleFields = () => {
-    setShowFields(true); // Show the input fields when the button is clicked
+    setShowFields(true); 
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTaskName(e.target.value);
-    setError(''); // Clear the error message when user types in the input field
+    setError(''); 
   };
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,13 +26,13 @@ export const TaskInput: React.FC = () => {
 
   const handleAddTask = () => {
     if (!taskName) {
-      setError('Title is required'); // Set error message if title field is empty
+      setError('Title is required'); 
       return;
     }
     dispatch(addTask({ id: Date.now(), title: taskName, text: taskText, completed: false }));
     setTaskName('');
     setTaskText('');
-    setShowFields(false); // Hide the input fields after adding the task
+    setShowFields(false); 
   };
 
   return (
