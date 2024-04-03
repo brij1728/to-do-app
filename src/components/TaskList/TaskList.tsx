@@ -39,8 +39,8 @@ export const TaskList: React.FC = () => {
             '& .MuiCheckbox-root': { color: theme.palette.primary.main },
 
           }}>
-            <Grid container alignItems="center">
-              <Grid item xs={1}>
+            <Grid container alignItems="center" gap={2}>
+              <Grid item xs={1} >
                 <Checkbox
                   checked={task.completed}
                   onChange={() => handleTaskDone(task)} 
