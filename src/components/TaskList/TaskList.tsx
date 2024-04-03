@@ -1,13 +1,13 @@
-import { Box, Checkbox, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText } from '@mui/material';
+import { Box, Checkbox, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, useTheme } from '@mui/material';
 import { deleteTask, updateTask } from '../../store/taskSlice';
 import { useAppDispatch, useAppSelector } from '../../store';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import React from 'react';
 import { Task } from '../../types';
-import { theme } from '../../theme';
 
 export const TaskList: React.FC = () => {
+  const theme = useTheme()
   const dispatch = useAppDispatch();
   const tasks = useAppSelector((state) => state.tasks.tasks);
 

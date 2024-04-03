@@ -11,6 +11,10 @@ export const ThemeContextProvider: React.FC<React.PropsWithChildren> = ({ childr
 
   const SYSTEM_THEME: Exclude<IThemeMode, IThemeMode.SYSTEM> = useMediaQuery('(prefers-color-scheme: dark)') ? IThemeMode.DARK : IThemeMode.LIGHT;
 
+  useEffect(() => {
+    setThemeMode(_getThemeModePref());
+  }, []);
+
   useEffect(() => {  
     switch (themeMode) {
       case IThemeMode.LIGHT:
@@ -28,8 +32,17 @@ export const ThemeContextProvider: React.FC<React.PropsWithChildren> = ({ childr
     }
   }, [SYSTEM_THEME, themeMode]);
 
+  const _getThemeModePref = (): IThemeMode => {
+    const themeModeFromPref = localStorage.getItem('themeMode') as IThemeMode;
+    return themeModeFromPref ? themeModeFromPref : IThemeMode.LIGHT;
+  }
+  const _setThemeModeToPref = (mode: IThemeMode) => {
+    localStorage.setItem('themeMode', mode);
+  }
+
   const switchThemeMode = (themeMode: IThemeMode) => {
     setThemeMode(themeMode);
+    _setThemeModeToPref(themeMode);
   }
 
   return (

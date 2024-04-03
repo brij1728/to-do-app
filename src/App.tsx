@@ -2,22 +2,21 @@ import { Container, Grid } from '@mui/material';
 
 import { Home } from './pages';
 import React from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './theme';
+import { ThemeSwitcher } from './components/ThemeSwitcher/ThemeSwitcher';
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Container>
         <Grid container justifyContent="flex-end" mt={2} mb={4}> 
           <Grid item>
-            {/* <ThemePicker /> */}
+            <ThemeSwitcher/>
           </Grid>
         </Grid>
       </Container>
 
       <Home />
-    </ThemeProvider>
+    </>
   );
 };
 

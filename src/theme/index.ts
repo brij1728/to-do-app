@@ -1,2 +1,3 @@
 export * from './ThemePicker';
-export { default as theme } from './theme';
+export * from './ThemeContext';
+export * from './types';
