@@ -19,6 +19,7 @@ export const ThemeSwitcher: React.FC = () => {
   };
 
   const handleSwitchTheme = (mode: IThemeMode) => {
+    console.log('Switching theme mode to:', mode);
     switchThemeMode(mode);
     setOpenMenu(false);
   };
