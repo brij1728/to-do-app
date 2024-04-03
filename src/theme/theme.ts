@@ -1,12 +1,6 @@
-import { createTheme } from '@mui/material/styles';
+import { Theme, createTheme } from '@mui/material';
 
-// Define custom background and text colors
-const lightBackground = '#556cd6';
-const darkBackground = '#5571d6';
-const lightText = '#000000';
-const darkText = '#FFFFFF';
-
-const theme = createTheme({
+export const AppLightTheme : Theme= createTheme({
   palette: {
     primary: {
       main: '#556cd6',
@@ -18,27 +12,38 @@ const theme = createTheme({
       main: '#FF1744',
     },
     background: {
-      default: lightBackground, 
-      paper: darkBackground, 
+      default: '#556cd6', 
+      paper: '#5571d6', 
     },
     text: {
-      primary: lightText, 
-      secondary: darkText, 
+      primary: '#000000', 
+      secondary: '#000000', 
     },
-    mode: 'light', // Initial mode set to light
+  
   },
-  components: {
-    MuiCardContent: {
-      styleOverrides: {
-        root: {
-          '&:last-child': {
-            paddingBottom: 8,
-          },
-          padding: 8,
-        },
-      },
-    },
-  },
+  
 });
 
-export default theme;
+export const AppDarkTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#556cd6',
+    },
+    secondary: {
+      main: '#5571d6',
+    },
+    error: {
+      main: '#FF1744',
+    },
+    background: {
+      default:  '#121212', 
+      paper: '#121212', 
+    },
+    text: {
+      primary: '#FFFFFF', 
+      secondary: '#FFEEFF', 
+    },
+    mode: 'dark', 
+  },
+  
+});

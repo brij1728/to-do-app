@@ -3,3 +3,8 @@ export enum IThemeMode {
   DARK = 'dark',
   SYSTEM = 'system'
 }
+
+export interface IThemeContext {
+  themeMode: IThemeMode;
+  switchThemeMode: (mode: IThemeMode) => void;
+}
